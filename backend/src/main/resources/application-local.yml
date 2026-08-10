@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:commerce-operations;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+security:
+  users:
+    seller1:
+      seller-id: 1
+      password: seller1-local
+    seller2:
+      seller-id: 2
+      password: seller2-local
