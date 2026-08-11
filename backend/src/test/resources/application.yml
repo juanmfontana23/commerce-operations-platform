@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:commerce-operations-test-${random.uuid};DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console:
+      enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: never
+    info:
+      access: read-only
+    metrics:
+      access: read-only
+
+outbox:
+  worker:
+    enabled: false
+    max-attempts: 3
+
+security:
+  users:
+    seller1:
+      seller-id: 1
+      password: seller1-local
+    seller2:
+      seller-id: 2
+      password: seller2-local
